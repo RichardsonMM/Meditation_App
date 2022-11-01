@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../main.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  bool stateToday = false;
+  bool stateAll = false;
+  bool stateSettings = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,18 +27,38 @@ class BottomNavBar extends StatelessWidget {
           BottomNavItem(
             svgSrc: "assets/icons/calendar.svg",
             title: "Today",
-            press: () {},
+            press: () {
+              setState(() {
+                stateToday = !stateToday;
+              });
+            },
+            isActive_Today: stateToday,
+            isActive_All: stateAll,
+            isActive_Settings: stateSettings,
           ),
           BottomNavItem(
             svgSrc: "assets/icons/gym.svg",
             title: "All Exercices",
-            press: () {},
-            isActive: true,
+            press: () {
+              setState(() {
+                stateAll = !stateAll;
+              });
+            },
+            isActive_Today: stateToday,
+            isActive_All: stateAll,
+            isActive_Settings: stateSettings,
           ),
           BottomNavItem(
             svgSrc: "assets/icons/Settings.svg",
             title: "Settings",
-            press: () {},
+            press: () {
+              setState(() {
+                stateSettings = !stateSettings;
+              });
+            },
+            isActive_Today: stateToday,
+            isActive_All: stateAll,
+            isActive_Settings: stateSettings,
           ),
         ],
       ),

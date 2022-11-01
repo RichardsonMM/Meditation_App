@@ -5,10 +5,12 @@ import '../constants.dart';
 class SessionCard extends StatelessWidget {
   final int sessionNum;
   final bool isDone;
+  final VoidCallback press;
   const SessionCard({
     Key? key,
     required this.sessionNum,
     this.isDone = false,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -21,20 +23,21 @@ class SessionCard extends StatelessWidget {
             width: constraint.maxWidth / 2 - 10,
             //padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(13),
-                boxShadow: const [
-                  BoxShadow(
-                    offset: Offset(0, 17),
-                    blurRadius: 23,
-                    spreadRadius: -13,
-                    color: kShadowColor,
-                  ),
-                ]),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(13),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(0, 17),
+                  blurRadius: 23,
+                  spreadRadius: -20,
+                  color: Colors.black,
+                ),
+              ],
+            ),
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () {},
+                onTap: press,
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
@@ -52,7 +55,7 @@ class SessionCard extends StatelessWidget {
                           color: isDone ? Colors.white : kBlueColor,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
                         "Session $sessionNum",
                         style: Theme.of(context).textTheme.subtitle1,
