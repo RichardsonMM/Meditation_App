@@ -1,5 +1,7 @@
 # meditation_app
 
+![tela1](https://user-images.githubusercontent.com/38991199/199347383-ece963e6-ee5d-4a64-804d-1d07a2d47b47.png)
+
 A new Flutter project.
 
 ## Getting Started
