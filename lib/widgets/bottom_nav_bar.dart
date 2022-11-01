@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/widgets/bottom_nav_item.dart';
 
 import '../main.dart';
 
